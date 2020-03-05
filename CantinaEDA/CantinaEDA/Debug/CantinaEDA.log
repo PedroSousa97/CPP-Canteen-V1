@@ -1,0 +1,11 @@
+﻿  FunctionsFile.cpp
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\functionsfile.cpp(62): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\functionsfile.cpp(75): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\functionsfile.cpp(89): warning C4244: '=': conversão de 'int' para 'float', possível perda de dados
+  Origem.cpp
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\origem.cpp(16): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\origem.cpp(240): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\origem.cpp(341): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+c:\users\henri\desktop\portfolio\cantinaeda\cantinaeda\origem.cpp(392): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+  Gerando Código...
+  CantinaEDA.vcxproj -> C:\Users\henri\Desktop\Portfolio\CantinaEDA\Debug\CantinaEDA.exe
