@@ -1,4 +1,4 @@
-# CPP-Canteen-V2
+# CPP-Canteen-V1
 
 The main goal of this project is to develop a C ++ program that simulates the operation of a “College Canteen”. The system should implement / simulate all the functionalities related to the functioning of a
 canteen. In summary, the program is expected to implement features for:
