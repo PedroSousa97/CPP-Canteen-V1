@@ -7,7 +7,7 @@
 #include "FunctionsFile.h"
 #include "Entidade.h"
 #include "Mesa.h"
-#include "RefeiÁao.h"
+#include "Refei√ßao.h"
 using namespace std;
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
 	preencheArray(primeirosnomes, "primeiro_nome.txt");
 	string * ultimosnomes = new string[contaLinhas("ultimo_nome.txt")];
 	preencheArray(ultimosnomes, "ultimo_nome.txt");
-	string * cursos = new string[contaLinhas("cursos.txt")];						//Leitura, contagem de linhas e criaÁ„o de arrays que ir„o conter os nomes e cursos
+	string * cursos = new string[contaLinhas("cursos.txt")];						//Leitura, contagem de linhas e cria√ß√£o de arrays que ir√£o conter os nomes e cursos
 	preencheArray(cursos, "cursos.txt");
 	int tamanhoy = contaLinhas("cursos.txt");
 
@@ -32,7 +32,7 @@ int main() {
 	int aremover;
 	int emerg;
 	int ganhostotais = 0;
-	int contaS = 0;																//DeclaraÁ„o de vari·veis
+	int contaS = 0;																//Declara√ß√£o de vari√°veis
 	int contaciclos=0;
 	string entrada;
 	string pratoprincip;
@@ -40,13 +40,13 @@ int main() {
 	int resposta;
 	bool dadosgravados = false;
 
-	RefeiÁao* Atual = new RefeiÁao;										//RefeiÁ„o Atual
-	RefeiÁao* Gravada = new RefeiÁao;									//RefeiÁ„o gravada
+	Refei√ßao* Atual = new Refei√ßao;										//Refei√ß√£o Atual
+	Refei√ßao* Gravada = new Refei√ßao;									//Refei√ß√£o gravada
 
 
-	cout << "******************************* BEM VINDO ¿ CANTINA EDA *******************************" << endl << endl;
-	cout << "************************************ REFEI«AO NOVA ************************************" << endl << endl;
-	cout << "A cantina EDA necessita de uma nova refeiÁ„o." << endl;
+	cout << "******************************* BEM VINDO √Ä CANTINA EDA *******************************" << endl << endl;
+	cout << "************************************ REFEI√áAO NOVA ************************************" << endl << endl;
+	cout << "A cantina EDA necessita de uma nova refei√ß√£o." << endl;
 	cout << "   1.Introduza a entrada:" << endl;
 	cin >> entrada;
 	cout << "   2.Introduza o prato principal:" << endl;
@@ -55,11 +55,11 @@ int main() {
 	cin >> custo;
 
 	Atual->entrada = entrada;
-	Atual->pratoprincipal = pratoprincip;								//Preenchimento da RefeiÁ„o Atual tendo em conta os dados introduzidos pelo utilizador
+	Atual->pratoprincipal = pratoprincip;								//Preenchimento da Refei√ß√£o Atual tendo em conta os dados introduzidos pelo utilizador
 	Atual->custo = custo;
 
-	Entidade** entidadesRemovidas = new Entidade*[300];					//Apontador para um vetor de apontadores para Entidade que ser· utilizado para guardar as pessoas removidas sem plafond
-	int num_ent_removidas=0;											//num_ent_removidas ser· incrementado a cada remoÁı e corresponde ‡ nova posiÁ„o onde ser· guardada a entidade no vetor de remoÁ„o
+	Entidade** entidadesRemovidas = new Entidade*[300];					//Apontador para um vetor de apontadores para Entidade que ser√° utilizado para guardar as pessoas removidas sem plafond
+	int num_ent_removidas=0;											//num_ent_removidas ser√° incrementado a cada remo√ß√µ e corresponde √† nova posi√ß√£o onde ser√° guardada a entidade no vetor de remo√ß√£o
 
 	int grupo;
 	int elementosgrupo;
@@ -70,9 +70,9 @@ int main() {
 	bool studentorstaff;
 	string curso;
 
-	int randomCantina = 30 + (std::rand() % (50 - 30 + 1));								//Tamanho aleatÛrio da Cantina entre 30 e 50
+	int randomCantina = 30 + (std::rand() % (50 - 30 + 1));								//Tamanho aleat√≥rio da Cantina entre 30 e 50
 
-	Mesa *gravaÁ„omesas = new Mesa[randomCantina];										//Apontador para um vetor de Mesas que ir· guardar a informaÁ„o realacionada com dados gravados
+	Mesa *grava√ß√£omesas = new Mesa[randomCantina];										//Apontador para um vetor de Mesas que ir√° guardar a informa√ß√£o realacionada com dados gravados
 	Mesa *conjmesas = new Mesa[randomCantina];											//Apontador para um vetor de Mesas que constituem a cantina
 	int lugaresdisponiveis = randomCantina;
 	int v = 0;
@@ -81,12 +81,12 @@ int main() {
 	int tamanhomesa;
 	int vagasocupadas = 0;
 	do{
-		while (v <= randomCantina && lugaresdisponiveis > 0) {          //Enquanto houver cadeiras a colocar na cantina ele ir· criar Mesas no vetor conjmesas
-			tamanhomesa = 2 + (std::rand() % (5 - 2 + 1));				//Tamanho aleatÛrio da mesa a criar
+		while (v <= randomCantina && lugaresdisponiveis > 0) {          //Enquanto houver cadeiras a colocar na cantina ele ir√° criar Mesas no vetor conjmesas
+			tamanhomesa = 2 + (std::rand() % (5 - 2 + 1));				//Tamanho aleat√≥rio da mesa a criar
 			if (tamanhomesa < lugaresdisponiveis) {
 				tamanhomesa = tamanhomesa;								
 			}
-			else if (tamanhomesa > lugaresdisponiveis) {				//Se o tamanho ultrapassar a disponibilidade, ent„o o tamanho passa a ser a prÛpria disponibilidade de colocÁ„o de cadeiras na cantina
+			else if (tamanhomesa > lugaresdisponiveis) {				//Se o tamanho ultrapassar a disponibilidade, ent√£o o tamanho passa a ser a pr√≥pria disponibilidade de coloc√ß√£o de cadeiras na cantina
 				tamanhomesa = lugaresdisponiveis;
 			}
 				criaMesa(tamanhomesa, numalunossentados, numeromesa, conjmesas, v);
@@ -97,8 +97,8 @@ int main() {
 	} while (lugaresdisponiveis >=0);
 	
 
-	Entidade **gravaÁaofila = new Entidade*[50];						//Apontador para um vetor de apontadores para Entidade que ser· utilizado para gravar dados
-	Entidade **filadeespera = new Entidade*[50];						//Apontador para um vetor de apontadores para Entidade que ser· utilizado para criar a fila
+	Entidade **grava√ßaofila = new Entidade*[50];						//Apontador para um vetor de apontadores para Entidade que ser√° utilizado para gravar dados
+	Entidade **filadeespera = new Entidade*[50];						//Apontador para um vetor de apontadores para Entidade que ser√° utilizado para criar a fila
 	int j = 0;
 	int i = 49;
 	do {
@@ -110,18 +110,18 @@ int main() {
 		curso = cursos[randomcourse];
 
 		if (randomcargo > 0) {		
-			studentorstaff = true;										//DefiniÁ„o de novas entidades como aluno ou staff
+			studentorstaff = true;										//Defini√ß√£o de novas entidades como aluno ou staff
 		}
 		else if (randomcargo == 0) {
 			studentorstaff = false;
 		}
 		while (j < elementosgrupo && i >= 0) {
 			int randomestatuto = 1 + (std::rand() % (100 - 1 + 1));				//Random para estatuto de 1 a 100
-			if (randomestatuto <= 5) {											//Se o valor obtido for menor ou igual a 5 ent„o È estudante estatuto especial 
-				estatutoespecial = true;										//(ou seja 5 de 100 n˙meros d· uma probabilidade de 5% como pedido)
+			if (randomestatuto <= 5) {											//Se o valor obtido for menor ou igual a 5 ent√£o √© estudante estatuto especial 
+				estatutoespecial = true;										//(ou seja 5 de 100 n√∫meros d√° uma probabilidade de 5% como pedido)
 			}
 			else if (randomestatuto > 5) {
-				estatutoespecial = false;										//Enquanto j for menor que o n˙emro de elementos constituintes do grupo e n„o ultrapassar a capacidade da fila, cria entidades
+				estatutoespecial = false;										//Enquanto j for menor que o n√∫emro de elementos constituintes do grupo e n√£o ultrapassar a capacidade da fila, cria entidades
 			}
 				criaEntidade(primeirosnomes, ultimosnomes, curso, filadeespera, grupo,estatutoespecial, i, studentorstaff,randomciclos, elementosgrupo);
 				j++;
@@ -129,23 +129,23 @@ int main() {
 				}
 			j = 0;
 	} while (i >= 0);
-	for (int x = 0; x <= 49; x++) {									//Percorre o vetor e verifica se alguÈm n„o tem plafond
+	for (int x = 0; x <= 49; x++) {									//Percorre o vetor e verifica se algu√©m n√£o tem plafond
 		if (filadeespera[x]->plafond < Atual->custo) {
-			cout << "**************************************** ATEN«√O ****************************************" << endl;
-			cout << "A entidade " << filadeespera[x]->prim_nome << " com n˙mero mecanogr·fico " << filadeespera[x]->num_mec << " grupo " << filadeespera[x]->num_grupo_dep << " n„o tem plafond suficiente." << endl;
+			cout << "**************************************** ATEN√á√ÉO ****************************************" << endl;
+			cout << "A entidade " << filadeespera[x]->prim_nome << " com n√∫mero mecanogr√°fico " << filadeespera[x]->num_mec << " grupo " << filadeespera[x]->num_grupo_dep << " n√£o tem plafond suficiente." << endl;
 			cout << "   1.Remover entidade da fila;" << endl;
 			cout << "   2.Remover grupo/departamento da fila;" << endl;
 			cin >> resposta;
 			if (resposta == 1) {
 				removeSemPlafond(filadeespera, entidadesRemovidas, x, num_ent_removidas);
-				criaEntidade(primeirosnomes, ultimosnomes, curso, filadeespera, grupo, estatutoespecial, x, studentorstaff, randomciclos, 1);     //Remove a entidade sem Plafond e cria uma nova nessa posiÁ„o
+				criaEntidade(primeirosnomes, ultimosnomes, curso, filadeespera, grupo, estatutoespecial, x, studentorstaff, randomciclos, 1);     //Remove a entidade sem Plafond e cria uma nova nessa posi√ß√£o
 				num_ent_removidas++;
 			}
 			if (resposta == 2) {
 				int z;
 				int novoselementos = filadeespera[x]->numcosntgrupo;
 				grupo = 100 + (std::rand() % (500 - 100 + 1));
-				randomciclos = 2 + (std::rand() % (5 - 2 + 1));								//Remove todos os elementos do grupo. Depois da posiÁ„o i(primeiro elemento do grupo encontrado)-(n∫ de elementos-1) ir· popular com novos elementos
+				randomciclos = 2 + (std::rand() % (5 - 2 + 1));								//Remove todos os elementos do grupo. Depois da posi√ß√£o i(primeiro elemento do grupo encontrado)-(n¬∫ de elementos-1) ir√° popular com novos elementos
 				randomcourse = 0 + (std::rand() % ((tamanhoy - 1) - 0 + 1));
 				curso = cursos[randomcourse];
 				for (z = procuraGrupo(filadeespera, filadeespera[x]->num_grupo_dep); z >= (procuraGrupo(filadeespera, filadeespera[x]->num_grupo_dep)- (filadeespera[x]->numcosntgrupo - 1)); z--) {
@@ -158,7 +158,7 @@ int main() {
 	}
 	
 	cout << endl << endl;
-	cout << "ENTIDADES REMOVIDAS POR FALTA DE DINHEIRO:" << endl << endl;				//Pequena impress„o na inicializaÁ„o para comprovar o funcionamento da remoÁ„o
+	cout << "ENTIDADES REMOVIDAS POR FALTA DE DINHEIRO:" << endl << endl;				//Pequena impress√£o na inicializa√ß√£o para comprovar o funcionamento da remo√ß√£o
 	for (int n = 0; n < num_ent_removidas; n++) {
 		cout << entidadesRemovidas[n]->prim_nome << " " << entidadesRemovidas[n]->course << " " << entidadesRemovidas[n]->cargo << " grupo/departamento: " << entidadesRemovidas[n]->num_grupo_dep << " ciclos " << entidadesRemovidas[n]->ciclosrestantes << endl;
 	}
@@ -170,10 +170,10 @@ int main() {
 	do
 	{
 		cout << "                                            Cantina EDA" << endl;
-		cout << "(s)Seguinte   (e)EmergÍncia   (g)Gravar   (c)Carregar Dados   (o)OpÁıes   (0)Fechar Programa" << endl << endl;
+		cout << "(s)Seguinte   (e)Emerg√™ncia   (g)Gravar   (c)Carregar Dados   (o)Op√ß√µes   (0)Fechar Programa" << endl << endl;
 		
-		cout << "RefeiÁ„o Actual:" << endl;
-		cout << "      Entrada: " << Atual->entrada << endl;								//Impress„o da RefeiÁao
+		cout << "Refei√ß√£o Actual:" << endl;
+		cout << "      Entrada: " << Atual->entrada << endl;								//Impress√£o da Refei√ßao
 		cout << "      Prato: " << Atual->pratoprincipal << endl;
 		cout << "      custo: " << Atual->custo << endl << endl;
 		int interator1=0;
@@ -181,8 +181,8 @@ int main() {
 		int interator3 = 0;
 		while (interator1 < numeromesa-1) {
 			cout << "MESA " << conjmesas[interator1].numdemesa << " (CAPACIDADE " << conjmesas[interator1].tamanho << "):" << endl;  
-			if (conjmesas[interator1].lugaresocupados == 0) {																		//Impress„o das mesas
-				cout << "N„o existem alunos sentados nesta mesa!" << endl << endl;
+			if (conjmesas[interator1].lugaresocupados == 0) {																		//Impress√£o das mesas
+				cout << "N√£o existem alunos sentados nesta mesa!" << endl << endl;
 			}
 			else if (conjmesas[interator1].lugaresocupados > 0) {
 				while (interator2 < conjmesas[interator1].lugaresocupados) {
@@ -197,50 +197,50 @@ int main() {
 		}
 		
 		cout << endl << endl;
-		cout << "FILA DE ESPERA:" << endl;						//Impress„o da fila (do ˙ltimo elemento para o primeiro a chegar, ou seja os ultimos elementos impressos foram os primeiros a chegar e primeiros a serem atendidos)
+		cout << "FILA DE ESPERA:" << endl;						//Impress√£o da fila (do √∫ltimo elemento para o primeiro a chegar, ou seja os ultimos elementos impressos foram os primeiros a chegar e primeiros a serem atendidos)
 		while (interator3 <= 49) {
 			if (filadeespera[interator3]->studentorstaff==true && filadeespera[interator3]->estatuto == false) {
-				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Grupo: " << filadeespera[interator3]->num_grupo_dep << ", " << filadeespera[interator3]->num_mec << ", " << filadeespera[interator3]->course << ", DuraÁ„o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond << "Euros" << endl;
+				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Grupo: " << filadeespera[interator3]->num_grupo_dep << ", " << filadeespera[interator3]->num_mec << ", " << filadeespera[interator3]->course << ", Dura√ß√£o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond << "Euros" << endl;
 			}
 			if (filadeespera[interator3]->studentorstaff == false) {
-				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Departamento: " << filadeespera[interator3]->num_grupo_dep << ", " << filadeespera[interator3]->num_mec << ", DuraÁ„o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond <<"Euros" << endl;
+				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Departamento: " << filadeespera[interator3]->num_grupo_dep << ", " << filadeespera[interator3]->num_mec << ", Dura√ß√£o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond <<"Euros" << endl;
 			}
 			else if (filadeespera[interator3]->studentorstaff == true && filadeespera[interator3]->estatuto == true) {
-				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Grupo: Individual" << ", " << filadeespera[interator3]->num_mec << ", " << filadeespera[interator3]->course << ", DuraÁ„o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond << "Euros" << endl;
+				cout << filadeespera[interator3]->prim_nome << " " << filadeespera[interator3]->seg_nome << ", " << filadeespera[interator3]->cargo << ", Grupo: Individual" << ", " << filadeespera[interator3]->num_mec << ", " << filadeespera[interator3]->course << ", Dura√ß√£o, " << filadeespera[interator3]->ciclosrestantes << ", Plafond: " << filadeespera[interator3]->plafond << "Euros" << endl;
 			}
 			interator3++;
 		}
 		cout << endl << endl;
-		cout << "Dinheiro cobrado atÈ ao momento pela Cantina EDA: " << ganhostotais << "Euros!!" << endl;     //Print de uma vari·vel criada para provar que a cobranÁa dos alunos removidos
-		cin >> opcao;																						   //tanto por emergÍncia como por ciclos est· a ocorrer
+		cout << "Dinheiro cobrado at√© ao momento pela Cantina EDA: " << ganhostotais << "Euros!!" << endl;     //Print de uma vari√°vel criada para provar que a cobran√ßa dos alunos removidos
+		cin >> opcao;																						   //tanto por emerg√™ncia como por ciclos est√° a ocorrer
 		cout << endl << endl;
 		if (opcao == 's') {
-			contaS++;                                   //ContaS comeÁa a 0
+			contaS++;                                   //ContaS come√ßa a 0
 		}
 
 		switch (opcao) {
 		case 's':
-			if (contaS == 1) {							//ContaS=1 significa que se refere ao primeiro ciclo, ent„o popula sÛ as mesas com os alunos da fila
+			if (contaS == 1) {							//ContaS=1 significa que se refere ao primeiro ciclo, ent√£o popula s√≥ as mesas com os alunos da fila
 				populaMesas(filadeespera,conjmesas, numeromesa, randomCantina, vagasocupadas, grupo, elementosgrupo, randomcargo, randomciclos, randomcourse, curso, cursos, tamanhoy,primeirosnomes, ultimosnomes, studentorstaff, estatutoespecial);
 				
 			}
-			else if (contaS > 1) {						//Caso se trate de ciclos posteriores (contaS >1) ir· realizar as seguintes funÁıes:
+			else if (contaS > 1) {						//Caso se trate de ciclos posteriores (contaS >1) ir√° realizar as seguintes fun√ß√µes:
 
 				for (int d = 0; d < numeromesa; d++) {
 					for (int aux = 0; aux < conjmesas[d].tamanho; aux++) {
-						conjmesas[d].x[aux]->ciclosrestantes = (conjmesas[d].x[aux]->ciclosrestantes) - 1;    //DecrementaÁ„o de 1 valor nos ciclos restantes de cada aluno sentado
+						conjmesas[d].x[aux]->ciclosrestantes = (conjmesas[d].x[aux]->ciclosrestantes) - 1;    //Decrementa√ß√£o de 1 valor nos ciclos restantes de cada aluno sentado
 					}
 					
 				}
 
 				for (int d = 0; d < numeromesa; d++) {
 					for (int aux = 0; aux < conjmesas[d].tamanho; aux++) {
-						if (conjmesas[d].x[aux]->ciclosrestantes == 0) {								//VerificaÁ„o de pessoas com ciclos a 0, para essas Pessoas:
-							conjmesas[d].x[aux]->plafond = conjmesas[d].x[aux]->plafond - Atual->custo; //… cobrado o custo atual no plafond
-							ganhostotais = ganhostotais + Atual->custo;									//Ganhos totais aumentam no valor da refeiÁ„o
-							conjmesas[d].x[aux] = filadeespera[49];										//… sentado na nova vaga o prÛximo aluno a ser atendido na fila
+						if (conjmesas[d].x[aux]->ciclosrestantes == 0) {								//Verifica√ß√£o de pessoas com ciclos a 0, para essas Pessoas:
+							conjmesas[d].x[aux]->plafond = conjmesas[d].x[aux]->plafond - Atual->custo; //√â cobrado o custo atual no plafond
+							ganhostotais = ganhostotais + Atual->custo;									//Ganhos totais aumentam no valor da refei√ß√£o
+							conjmesas[d].x[aux] = filadeespera[49];										//√â sentado na nova vaga o pr√≥ximo aluno a ser atendido na fila
 							for (int y = 48; y >= 0; y--) {
-								filadeespera[y + 1] = filadeespera[y];									//Andamos todas as posiÁıes da fila uma casa para a frente
+								filadeespera[y + 1] = filadeespera[y];									//Andamos todas as posi√ß√µes da fila uma casa para a frente
 								int l = 0;
 								int m = 0;																//Cria-se uma pessoa no fim da fila nos lugares que forem desocupados
 								do {
@@ -278,9 +278,9 @@ int main() {
 				}
 
 		
-				contaciclos++;																	//contaciclos È inicializado a 0, a cada 10 pede ao utilizador uma nova refeiÁ„o
+				contaciclos++;																	//contaciclos √© inicializado a 0, a cada 10 pede ao utilizador uma nova refei√ß√£o
 				if (contaciclos == 10) {
-					cout << "A cantina EDA necessita de uma nova refeiÁ„o." << endl;
+					cout << "A cantina EDA necessita de uma nova refei√ß√£o." << endl;
 					cout << "   1.Introduza a entrada:" << endl;
 					cin >> entrada;
 					cout << "   2.Introduza o prato principal:" << endl;
@@ -295,10 +295,10 @@ int main() {
 				}
 				
 			}
-			for (int x = 0; x <= 49; x++) {					//Nova verificaÁ„o de entidades sem plafond, igual ‡ feita anteriormente na inicializaÁ„o
+			for (int x = 0; x <= 49; x++) {					//Nova verifica√ß√£o de entidades sem plafond, igual √† feita anteriormente na inicializa√ß√£o
 				if (filadeespera[x]->plafond < Atual->custo) {
-					cout << "**************************************** ATEN«√O ****************************************" << endl;
-					cout << "A entidade " << filadeespera[x]->prim_nome << " com n˙mero mecanogr·fico " << filadeespera[x]->num_mec << " grupo " << filadeespera[x]->num_grupo_dep << " n„o tem plafond suficiente." << endl;
+					cout << "**************************************** ATEN√á√ÉO ****************************************" << endl;
+					cout << "A entidade " << filadeespera[x]->prim_nome << " com n√∫mero mecanogr√°fico " << filadeespera[x]->num_mec << " grupo " << filadeespera[x]->num_grupo_dep << " n√£o tem plafond suficiente." << endl;
 					cout << "   1.Remover entidade da fila;" << endl;
 					cout << "   2.Remover grupo/departamento da fila;" << endl;
 					cin >> resposta;
@@ -324,14 +324,14 @@ int main() {
 			}
 			break;
 		case 'e':
-			cout << "**************************************** EMERG NCIA ****************************************" << endl;   //RemoÁ„o de um utente ou grupo por emergÍncia
-			cout << "SituaÁ„o de emergÍncia:" << endl;
+			cout << "**************************************** EMERG√äNCIA ****************************************" << endl;   //Remo√ß√£o de um utente ou grupo por emerg√™ncia
+			cout << "Situa√ß√£o de emerg√™ncia:" << endl;
 			cout << "   1.Remover entidade da cantina;" << endl;
 			cout << "   2.Remover grupo/departamento da cantina;" << endl;
 			cin >> emerg;
 			cout << endl;
 			if (emerg == 1) {
-				cout << "N˙mero mecanogr·fico da entidade:" << endl;
+				cout << "N√∫mero mecanogr√°fico da entidade:" << endl;
 				cin >> aremover;
 				for (int d = 0; d < numeromesa; d++) {
 					for (int aux = 0; aux < conjmesas[d].tamanho; aux++) {
@@ -341,7 +341,7 @@ int main() {
 							ganhostotais = ganhostotais + Atual->custo;
 							conjmesas[d].x[aux] = filadeespera[49];
 							for (int y = 48; y >= 0; y--) {
-								filadeespera[y + 1] = filadeespera[y];					//Anda a fila uma posiÁ„o para frente
+								filadeespera[y + 1] = filadeespera[y];					//Anda a fila uma posi√ß√£o para frente
 								int l = 0;
 								int m = 0;
 								do {
@@ -359,7 +359,7 @@ int main() {
 										studentorstaff = false;
 									}
 									while (m < elementosgrupo && l < (49 - 48)) {
-										int randomestatuto = 1 + (std::rand() % (100 - 1 + 1));      //CriaÁ„o de uma nova entidade no lugar vago no fim da fila
+										int randomestatuto = 1 + (std::rand() % (100 - 1 + 1));      //Cria√ß√£o de uma nova entidade no lugar vago no fim da fila
 										if (randomestatuto <= 5) {
 											estatutoespecial = true;
 										}
@@ -377,7 +377,7 @@ int main() {
 					}
 				}
 				if (pessoaencontrada == false) {
-					cout << "N„o existe de momento nenhuma entidade com n˙mero " << aremover << " a usufruir da cantina!" << endl << endl;
+					cout << "N√£o existe de momento nenhuma entidade com n√∫mero " << aremover << " a usufruir da cantina!" << endl << endl;
 				}
 				pessoaencontrada = false;
 			}
@@ -404,7 +404,7 @@ int main() {
 									curso = cursos[randomcourse];
 
 									if (randomcargo > 0) {
-										studentorstaff = true;											//Cria novos grupos para as novas posiÁıes livres no fim da fila
+										studentorstaff = true;											//Cria novos grupos para as novas posi√ß√µes livres no fim da fila
 									}
 									else if (randomcargo == 0) {
 										studentorstaff = false;
@@ -428,7 +428,7 @@ int main() {
 					}
 				}
 				if (pessoaencontrada == false) {
-					cout << "N„o existe de momento nenhum departamento/grupo " << aremover << " a usufruir da cantina!" << endl << endl;
+					cout << "N√£o existe de momento nenhum departamento/grupo " << aremover << " a usufruir da cantina!" << endl << endl;
 				}
 				pessoaencontrada = false;
 			}
@@ -436,39 +436,39 @@ int main() {
 			break;
 		case 'g':
 			Gravada->custo = Atual->custo;
-			Gravada->pratoprincipal = Atual->pratoprincipal;			//Basicamente copia para a refeiÁ„o de gravaÁ„o os dados da atual
+			Gravada->pratoprincipal = Atual->pratoprincipal;			//Basicamente copia para a refei√ß√£o de grava√ß√£o os dados da atual
 			Gravada->entrada = Atual->entrada;									
 			for (int b = 49; b >= 0; b--) {
-				gravaÁaofila[b] = filadeespera[b];
-			}															//Copia cada posiÁ„o dos vetores originais da fila e mesas para os de gravaÁ„o
+				grava√ßaofila[b] = filadeespera[b];
+			}															//Copia cada posi√ß√£o dos vetores originais da fila e mesas para os de grava√ß√£o
 		
 			for (int y = 0; y < numeromesa; y++)
-				gravaÁ„omesas[y] = conjmesas[y];
+				grava√ß√£omesas[y] = conjmesas[y];
 			dadosgravados = true;
 			break;
 		case 'c':
 			if (dadosgravados == false) {
-				cout << "N„o existem dados de cantina gravados!" << endl;					//Caso em que nada foi gravado
+				cout << "N√£o existem dados de cantina gravados!" << endl;					//Caso em que nada foi gravado
 			}
 			else if (dadosgravados == true) {
 				Atual->custo = Gravada->custo;
-				Atual->pratoprincipal = Gravada->pratoprincipal;						//Basicamente copia para a refeiÁ„o atual os dados de gravaÁ„o
+				Atual->pratoprincipal = Gravada->pratoprincipal;						//Basicamente copia para a refei√ß√£o atual os dados de grava√ß√£o
 				Atual->entrada = Gravada->entrada;
 				for (int b = 49; b >= 0; b--) {
-					filadeespera[b]=gravaÁaofila[b];
+					filadeespera[b]=grava√ßaofila[b];
 				}
-																						//Copia cada posiÁ„o dos vetores gravaÁ„o da fila e mesas para os originais
+																						//Copia cada posi√ß√£o dos vetores grava√ß√£o da fila e mesas para os originais
 				for (int y = 0; y < numeromesa; y++)
-					conjmesas[y]=gravaÁ„omesas[y];
+					conjmesas[y]=grava√ß√£omesas[y];
 			}
 			break;
 		case 'o':
-			cout << "******************************* OP«’ES *******************************" << endl << endl;
+			cout << "******************************* OP√á√ïES *******************************" << endl << endl;
 			cout << "   1.Visualizar todos os utentes da cantina;" << endl;
 			cout << "   2.Visualizar todos os utentes ordenados alfabeticamente pelo sobrenome;" << endl;
 			cout << "   3.Alterar Plafond de um utente que se encontre na Fila;" << endl;
 			cin >> functions;
-			if (functions == 1) {												//Impress„o de todos os utentes da fila
+			if (functions == 1) {												//Impress√£o de todos os utentes da fila
 				cout << "UTENTES NA FILA DE ESPERA:" << endl;
 				for (int interator3 = 49; interator3 >= 0; interator3--) {
 					if (filadeespera[interator3]->studentorstaff == true && filadeespera[interator3]->estatuto == false) {
@@ -521,7 +521,7 @@ int main() {
 						if (sistema[l]->seg_nome > sistema[l + 1]->seg_nome)
 						{
 							temp = sistema[l]->seg_nome;
-							sistema[l]->seg_nome = sistema[l + 1]->seg_nome;			//… realizado um sort do vetor sistema
+							sistema[l]->seg_nome = sistema[l + 1]->seg_nome;			//√â realizado um sort do vetor sistema
 							sistema[l + 1]->seg_nome = temp;
 							swap = true;
 						}
@@ -542,19 +542,19 @@ int main() {
 			}
 			if (functions == 3) {
 				cout << "***************************** Alterar Plafond de Utente *****************************" << endl;
-				cout << "Indique o n˙mero mecanogr·fico da entidade em quest„o:" << endl;
-				cout << "N˙mero mecanogr·fico da entidade:" << endl;
+				cout << "Indique o n√∫mero mecanogr√°fico da entidade em quest√£o:" << endl;
+				cout << "N√∫mero mecanogr√°fico da entidade:" << endl;
 				cin >> aremover;
 				for (int d = 0; d <= 49; d++) {
 					if (filadeespera[d]->num_mec == aremover) {
-						float novoplafond;												//Procura na fila a pessoa com n˙mero indicado pelo utilizador
+						float novoplafond;												//Procura na fila a pessoa com n√∫mero indicado pelo utilizador
 						pessoaencontrada = true;
 						cout << "Insira o novo Plafond:" << endl;
 						cin >> novoplafond;
 						filadeespera[d]->plafond = novoplafond;							//Altera Plafond
 					}
 					if (pessoaencontrada = false) {
-						cout << "N„o existe entidade com este n˙mero mecanogr·fico!" << endl;			//Se n„o existir o n˙mero em quest„o
+						cout << "N√£o existe entidade com este n√∫mero mecanogr√°fico!" << endl;			//Se n√£o existir o n√∫mero em quest√£o
 					}
 					pessoaencontrada = false;
 				}
@@ -565,7 +565,7 @@ int main() {
 			break;
 
 		case '0':
-			cout << "Escolheu a opÁ„o Sair!" << endl << endl;
+			cout << "Escolheu a op√ß√£o Sair!" << endl << endl;
 			sair = true;
 			break;
 		default:
@@ -575,9 +575,9 @@ int main() {
 	} while (!sair);
 
 	system("PAUSE");
-	return 0;
 	cin.sync();
 	cin.get();
+	return 0;
 }
 
 	
