@@ -30,6 +30,7 @@ The program also contains some interactions and options for manipulating data fr
 
 The development of this project includes:
 * Use of dynamic arrays;
+* Implementation of custom C++ data structures ("Struct")
 * Implementation of main sorting algorithms;
 * Extraction of data from a text file, used to create random user names and courses;
 
